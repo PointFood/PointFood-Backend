@@ -16,7 +16,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("/cards")
+@RequestMapping(value = "/cards")
 public class CardController {
 
     @Autowired

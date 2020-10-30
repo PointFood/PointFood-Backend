@@ -13,6 +13,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
+
 public class SwaggerConfig {
     @Bean
     public Docket api() {
@@ -29,9 +30,9 @@ public class SwaggerConfig {
 
         return new ApiInfoBuilder()
                 .title("API PointFood")
-                .description("API PointFood del curso Aplicaciones Open Source con Spring Boot")
+                .description("PointFood - API con Spring Boot")
                 .version("1.0")
-                .contact(new Contact("PointFood Corp.", "https://github.com/renzo0809/PointFood", ""))
+                .contact(new Contact("PointFood Corp.", "https://github.com/PointFood", ""))
                 .build();
     }
 }
