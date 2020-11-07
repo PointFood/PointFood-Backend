@@ -8,7 +8,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
@@ -36,10 +35,10 @@ public class Restaurant implements Serializable {
     @Column(name = "phone", length = 9, nullable = false)
     private String phone;
 
-    @JoinColumn(name="restaurant_owner_id")
+    @JoinColumn(name="manager_id")
     @ManyToOne(fetch=FetchType.LAZY)
     @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
-    private RestaurantOwner restaurantOwner;
+    private Manager manager;
 
     @OneToMany
     @JoinColumn(name="restaurant_id")

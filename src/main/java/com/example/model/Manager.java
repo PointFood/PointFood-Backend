@@ -21,8 +21,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name="restaurant_owners")
-public class RestaurantOwner implements Serializable {
+@Table(name="manager")
+public class Manager implements Serializable {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -49,7 +49,7 @@ public class RestaurantOwner implements Serializable {
     private String password;
 
     @OneToMany
-    @JoinColumn(name="restaurant_owner_id")
+    @JoinColumn(name="manager_id")
     @JsonIgnore
     private List<Restaurant> restaurants;
 }
