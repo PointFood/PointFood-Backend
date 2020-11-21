@@ -54,17 +54,6 @@ public class OrderController {
         return ResponseEntity.ok(orderDB);
     }
 
-    @GetMapping("/restaurants/{restaurantId}/state/{stateId}")
-    public ResponseEntity<List<Order>> listOrdersByRestaurantAndState(@PathVariable("restaurantId") Long restaurantId,
-                                                                      @PathVariable("stateId") Long stateId){
-        List<Order> orders = orderService.getOrdersByRestaurantAndState(restaurantId, stateId);
-        if (orders.isEmpty()) {
-            return ResponseEntity.noContent().build();
-        }
-
-        return ResponseEntity.ok(orders);
-    }
-
     @GetMapping("/restaurants/{id}")
     public ResponseEntity<List<Order>> listOrdersByRestaurant(@PathVariable("id") Long id){
         List<Order> orders = orderService.getOrdersByRestaurant(id);

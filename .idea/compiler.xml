@@ -8,15 +8,18 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Point Food" />
+        <module name="pointfood" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Point Food" target="1.8" />
+      <module name="pointfood" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Point Food" options="-parameters" />
+      <module name="pointfood" options="-parameters" />
     </option>
   </component>
 </project>

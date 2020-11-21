@@ -43,11 +43,6 @@ public class Order implements Serializable {
     @Column(name = "registered_at", nullable = false)
     private Date registeredAt;
 
-    //@NotNull(message = "La fecha de entrega no puede ser vacío")
-    //@Temporal(TemporalType.TIMESTAMP)
-    //@Column(name = "delivered_at", nullable = false)
-    //private Date deliveredAt;
-
     @JoinColumn(name="restaurant_id", nullable = false)
     @ManyToOne(fetch=FetchType.LAZY)
     @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
@@ -62,8 +57,6 @@ public class Order implements Serializable {
     @Column(name = "total", precision = 6, scale =  2, nullable = false)
     private double total;
 
-    @JoinColumn(name="status_id", nullable = false)
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
-    private State state;
+    @Column(name="status", nullable = false)
+    private String status;
 }

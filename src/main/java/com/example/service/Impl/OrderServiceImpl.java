@@ -4,14 +4,12 @@ import com.example.exception.ResourceNotFoundException;
 import com.example.model.DishExtra;
 import com.example.model.Order;
 import com.example.model.OrderDetail;
-import com.example.model.State;
 import com.example.repository.*;
 import com.example.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
 import java.util.List;
 
 
@@ -33,14 +31,11 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private DishExtraRepository dishExtraRepository;
 
-    @Autowired
-    private StateRepository stateRepository;
 
     @Transactional
     @Override
     public Order createOrder(Order order) {
 
-        order.setState(stateRepository.getOne((long) 1));
         orderRepository.save(order);
         for (OrderDetail od : order.getDishes()){
             od.setOrder(order);
@@ -94,15 +89,8 @@ public class OrderServiceImpl implements OrderService {
         if(orderDB == null){
             throw new ResourceNotFoundException("There is no order with Id " + id);
         }
-        orderDB.setState(stateRepository.getOne((long) 2));
 
         return orderRepository.save(orderDB);
-    }
-
-    @Transactional(readOnly = true)
-    @Override
-    public List<Order> getOrdersByRestaurantAndState(Long restaurantId, Long stateId) {
-        return orderRepository.findOrdersByRestaurantAndState(restaurantId, stateId);
     }
 
     @Transactional(readOnly = true)
